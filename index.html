@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xưởng Kinh Dị</title>
+    <meta
+      name="description"
+      content="Bảng điều khiển riêng để tạo trang hù dọa và liên kết chia sẻ."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Creepster&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="site.css" />
+  </head>
+  <body class="admin-body">
+    <div class="app-shell">
+      <aside class="sidebar glass-panel">
+        <div class="brand-wrap">
+          <div class="brand-mark">H</div>
+          <div>
+            <p class="brand-kicker">Xưởng sáng tạo</p>
+            <h2>Xưởng Kinh Dị</h2>
+          </div>
+        </div>
+
+        <nav class="side-nav">
+          <button class="nav-item active" data-target="builder-grid" type="button">Tạo trang</button>
+          <button class="nav-item" data-target="saved-lists" type="button">Đã lưu</button>
+          <button class="nav-item" data-target="form-panel" type="button">Cài đặt</button>
+        </nav>
+
+        <div class="mini-card">
+          <p class="mini-label">Link máy chủ</p>
+          <strong id="admin-url-label">http://localhost:8000/</strong>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar glass-panel">
+          <div>
+            <p class="eyebrow">Bảng điều khiển riêng</p>
+            <h1>Dựng trang của bạn</h1>
+          </div>
+          <button id="new-template" class="soft-btn" type="button">Mẫu mới</button>
+        </header>
+
+        <section class="builder-grid">
+          <div class="panel glass-panel form-panel">
+            <div class="section-heading">
+              <p class="eyebrow">Tùy chỉnh</p>
+              <h3>Cấu hình trang</h3>
+            </div>
+
+            <div class="field-grid">
+              <label>
+                <span>Tên mẫu</span>
+                <input id="templateNameInput" type="text" placeholder="Ví dụ: Lời mời Halloween" />
+              </label>
+
+              <label>
+                <span>Câu hỏi trên hộp thoại</span>
+                <input id="titleInput" type="text" value="Bạn có muốn cùng tôi đón Halloween không?" />
+              </label>
+
+              <label>
+                <span>Chữ nút đồng ý</span>
+                <input id="yesTextInput" type="text" value="🎃 Có" />
+              </label>
+
+              <label>
+                <span>Chữ nút từ chối</span>
+                <input id="noTextInput" type="text" value="🕸 Không" />
+              </label>
+
+              <label>
+                <span>Màu nút</span>
+                <input id="accentInput" type="color" value="#ff9eb4" />
+              </label>
+
+              <label>
+                <span>Màu chữ hộp thoại</span>
+                <input id="textColorInput" type="color" value="#ff5d85" />
+              </label>
+
+              <label>
+                <span>Màu nền trang</span>
+                <input id="backgroundColorInput" type="color" value="#897c82" />
+              </label>
+
+              <label>
+                <span>Màu hộp thoại</span>
+                <input id="dialogColorInput" type="color" value="#fff7fa" />
+              </label>
+
+              <label>
+                <span>Kiểu nút</span>
+                <select id="buttonStyleInput">
+                  <option value="pill">Viên bo tròn</option>
+                  <option value="soft">Bo mềm</option>
+                  <option value="outline">Viền trong suốt</option>
+                </select>
+              </label>
+
+              <label>
+                <span>Đường dẫn ảnh nền</span>
+                <input id="backgroundImageInput" type="url" placeholder="https://.../anh-nen.jpg" />
+              </label>
+
+              <div class="field-control">
+                <span class="field-label">Tải ảnh nền hoặc GIF từ máy</span>
+                <input id="backgroundImageFileInput" type="file" accept="image/*" hidden />
+                <button class="upload-trigger" data-file-picker="backgroundImageFileInput" type="button">Chọn ảnh nền</button>
+                <small id="backgroundUploadStatus" class="upload-status">Chưa chọn tệp</small>
+              </div>
+
+              <label>
+                <span>Kiểu con trỏ</span>
+                <select id="cursorModeInput">
+                  <option value="emoji">Gõ emoji</option>
+                  <option value="image">Dùng ảnh</option>
+                </select>
+              </label>
+
+              <label id="cursorEmojiField">
+                <span>Emoji con trỏ</span>
+                <input id="cursorEmojiInput" type="text" value="🎃" maxlength="8" />
+              </label>
+
+              <label id="cursorImageField" hidden>
+                <span>URL ảnh con trỏ (hoặc tải ảnh bên dưới)</span>
+                <input id="cursorImageInput" type="url" placeholder="https://.../con-tro.png" />
+              </label>
+
+              <div class="field-control" id="cursorImageUploadField" hidden>
+                <span class="field-label">Tải ảnh con trỏ</span>
+                <input id="cursorImageFileInput" type="file" accept="image/png,image/gif,image/webp" hidden />
+                <button class="upload-trigger" data-file-picker="cursorImageFileInput" type="button">Chọn ảnh con trỏ</button>
+                <small id="cursorUploadStatus" class="upload-status">Chưa chọn ảnh</small>
+              </div>
+
+              <label>
+                <span>URL video hù (hoặc tải video/GIF bên dưới)</span>
+                <input id="scareVideoInput" type="url" placeholder="https://.../video-kinh-di.mp4" />
+              </label>
+
+              <div class="field-control">
+                <span class="field-label">Tải video hoặc GIF</span>
+                <input id="scareVideoFileInput" type="file" accept="video/mp4,video/webm,video/ogg,image/gif,.mp4,.webm,.ogg,.mov,.gif" hidden />
+                <button class="upload-trigger" data-file-picker="scareVideoFileInput" type="button">Chọn video/GIF</button>
+                <small id="scareVideoUploadStatus" class="upload-status">Tệp được truyền theo từng khối; dung lượng phụ thuộc máy chủ/ổ đĩa.</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel glass-panel preview-panel">
+            <div class="section-heading">
+              <p class="eyebrow">Xem trước trực tiếp</p>
+              <h3>Trang người nhận</h3>
+            </div>
+
+            <div class="preview-screen" id="previewScreen">
+              <div class="preview-dialog" id="previewDialog">
+                <h2 id="previewTitle">Bạn có muốn cùng tôi đón Halloween không?</h2>
+                <div class="choice-buttons">
+                  <button type="button" class="choice-btn" id="previewYes">🎃 Có</button>
+                  <button type="button" class="choice-btn" id="previewNo">🕸 Không</button>
+                </div>
+              </div>
+              <span id="previewCursor" class="preview-cursor">🎃</span>
+              <img id="previewCursorImage" class="preview-image-cursor" alt="" hidden />
+              <div class="preview-scare" id="previewScare" hidden>
+                <video id="previewScareVideo" controls playsinline></video>
+                <img id="previewScareGif" alt="Video GIF" hidden />
+                <button id="closePreviewScare" class="soft-btn" type="button">Quay lại xem mẫu</button>
+              </div>
+            </div>
+
+            <div class="action-stack">
+              <button id="saveTemplate" class="soft-btn" type="button">Lưu mẫu</button>
+              <button id="generateLink" class="primary-btn" type="button">Tạo liên kết chia sẻ</button>
+              <div class="share-output-wrap">
+                <input id="shareUrlOutput" type="text" readonly placeholder="Tạo liên kết để nhận đường dẫn" />
+                <button id="copyGeneratedLink" class="soft-btn" type="button" disabled>Sao chép</button>
+              </div>
+              <p id="actionMessage" class="action-message" role="status" aria-live="polite"></p>
+            </div>
+          </div>
+        </section>
+
+        <section class="saved-lists panel glass-panel">
+          <div class="section-heading">
+              <p class="eyebrow">Mẫu</p>
+              <h3>Bố cục đã lưu</h3>
+          </div>
+
+          <div id="savedTemplates" class="saved-grid"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

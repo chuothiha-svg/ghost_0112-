@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lời mời Halloween</title>
+    <meta name="description" content="Một lời mời Halloween." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Creepster&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="site.css" />
+  </head>
+  <body class="share-body">
+    <div class="share-page-shell">
+      <main class="share-content">
+        <section class="invite-dialog" id="inviteDialog">
+          <h1 id="sceneTitle">Trang của tôi</h1>
+          <div class="choice-buttons">
+            <button id="yesButton" class="choice-btn" type="button">🎃 Có</button>
+            <button id="noButton" class="choice-btn" type="button">🕸 Không</button>
+          </div>
+        </section>
+      </main>
+
+      <div class="scare-screen" id="scareScreen" aria-hidden="true" hidden>
+        <video id="scareVideo" playsinline controlslist="nodownload noremoteplayback noplaybackrate" disablepictureinpicture disableremoteplayback></video>
+        <img id="scareGif" alt="Video GIF" hidden />
+        <p id="videoError" class="video-error" hidden>Không phát được video. Kiểm tra lại URL video.</p>
+      </div>
+      <div id="emojiCursor" class="emoji-cursor" aria-hidden="true"></div>
+      <img id="imageCursor" class="image-cursor" alt="" aria-hidden="true" hidden />
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
